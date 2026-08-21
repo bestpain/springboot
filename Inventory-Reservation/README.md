@@ -1,110 +1,32 @@
-🔥 Main Implementation — Inventory Reservation
+# Inventory Reservation System
 
-Build a small Spring Boot API:
+## Problem
+What happens when two users try to reserve the same product simultaneously?
 
-POST /inventory/{productId}/reserve
+## Solution
+Database-level concurrency control...
 
-Assume:
+## Tech Stack
+- Java
+- Spring Boot
+- Spring Data JPA
+- MySQL
+- Flyway
 
-Product
----------
-id
-name
-availableQuantity
+## Architecture
+Controller → Service → Repository → Database
 
-Initial quantity:
+## Concurrency Handling
+...
 
-availableQuantity = 10
+## Database Schema
+...
 
-The requirement:
+## API Examples
+...
 
-Multiple users can simultaneously try to reserve inventory.
+## How to Run
+...
 
-Task 1 — Build the basic implementation
-
-Create:
-
-Product
-ProductRepository
-InventoryService
-InventoryController
-
-Implement:
-
-reserve(productId, quantity)
-
-Rules:
-
-Product must exist.
-Quantity must be > 0.
-Quantity cannot exceed available inventory.
-If successful, decrease availableQuantity.
-Return appropriate response.
-
-Don't worry about concurrency yet.
-
-Stop here.
-
-Run it through Postman/curl/tests and make sure the normal case works.
-
-Task 2 — Find the race condition
-
-Now imagine:
-
-availableQuantity = 1
-
-Two requests arrive almost simultaneously:
-
-User A → reserve(1)
-User B → reserve(1)
-
-Your current implementation may effectively do:
-
-A reads quantity = 1
-B reads quantity = 1
-
-
-A → quantity = 0
-B → quantity = 0
-
-
-A succeeds
-B succeeds
-
-That's the problem we're interested in.
-
-Your task:
-
-Don't immediately look for the solution.
-
-First answer:
-
-Why can this happen?
-What exactly is the race condition?
-At what point must we prevent the two operations from interfering?
-What would happen if you simply added Java synchronized?
-Would synchronized solve the problem if you had 5 instances of the Spring Boot service?
-
-Write your answers to me.
-
-Task 3 — Optimistic locking
-
-Now implement:
-
-@Version
-
-on the entity.
-
-Your objective:
-
-Request A ──┐
-├── same product
-Request B ──┘
-
-should result in one request detecting the conflict.
-
-Don't just tell me how it works.
-
-Actually implement it.
-
-Then intentionally create the conflict.
+## Example Scenario
+User A and User B attempt to reserve the last available item...
