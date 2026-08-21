@@ -108,35 +108,3 @@ Don't just tell me how it works.
 Actually implement it.
 
 Then intentionally create the conflict.
-
-Task 4 — Don't solve everything today
-
-This is important given what we just discussed.
-
-Do NOT spend the whole night trying to complete all of this.
-
-For Day 1, your main target is:
-
-Basic reservation
-↓
-Understand race condition
-↓
-Implement optimistic locking
-↓
-Reproduce conflict
-
-These can be parked for later:
-
-⏸️ Concurrent automated test
-⏸️ Retry mechanism
-⏸️ Failure handling
-⏸️ Pessimistic locking
-⏸️ Atomic SQL solution
-
-Those are future revisit points, not failures.
-
-
-To complete:
-⏸️ Retry mechanism
-⏸️ Failure handling
-⏸️ Pessimistic locking
