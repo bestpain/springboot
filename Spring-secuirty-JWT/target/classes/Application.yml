@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: Spring-Security
+
+  jwt:
+    secret: 4scQFXCU47RU4oIXdmqGmoZbnR0VRCejYlxhzz16P3H
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/60_days_challenge
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+
+  mvc:
+    servlet:
+      path: /api
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE
