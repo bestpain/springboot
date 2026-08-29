@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: Idempotency-Handling
+
+  mvc:
+    servlet:
+      path: /api
+
